@@ -8,7 +8,7 @@ class BoggleGame {
         this.words = new Set();
 
         $('#guess-btn').on('click', this.handleGuess.bind(this));
-        $('#restart-btn').on('click', reloadPage);
+        $('#restart-btn').on('click', this.reloadPage);
     }
 
 
@@ -72,26 +72,28 @@ class BoggleGame {
     }
 
 
-    //on page load, start timer
+    //on game start, start timer
     async startTimer(){
         //hide restart button
         $('#restart-container').hide();
 
-        let count = 9
+        let count = 59
         let $timer = $('#timer')
 
-        let timerID = window.setInterval(function(){
-            $timer.text(count);
-            count -= 1
-            if (count > -1 && count < 5) {
-                $('#timer-container').addClass('timer-running-out');
-            }
-            else if (count === -1) {
-                clearInterval(timerID);
-                $('#timer-container').addClass('timer-finished');
-                this.gameOver();
-            } 
-        }, 1000)
+        let timerID = window.setInterval(
+            async function(){
+                $timer.text(count);
+                count -= 1
+                if (count > -1 && count < 5) {
+                    $('#timer-container').addClass('timer-running-out');
+                }
+                else if (count === -1) {
+                    clearInterval(timerID);
+                    $('#timer-container').addClass('timer-finished');
+                    await this.gameOver();
+                } 
+        }.bind(this),
+        1000);
     }
 
 
