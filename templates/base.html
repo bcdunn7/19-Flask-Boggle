@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boggle!</title>
+    <link rel="stylesheet" href="/static/app.css">
+    <link rel="stylesheet"
+  href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4"></div>
+            <div class="col-4">
+                <div class="h1 text-center my-4">Boggle!</div>
+            </div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-2">
+                <div id="timer-container" class="row text-center">
+                    <div class="h3">TIMER:</div>
+                    <p id="timer">60</p>
+                </div>
+            </div>
+            <div class="col-auto">
+                <table class="table table-responsive table-borderless">
+                    {% for row in board %}
+                        <tr>
+                            {% for letter in row %}
+                                <td>
+                                    <div class="letter-box shadow">
+                                        {{ letter }}
+                                    </div>
+                                </td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-2">
+                <div class="row text-center">
+                    <div class="h3">SCORE:
+                        <div id="current-score">0</div>
+                    </div>
+                </div>
+                <div id="result-display" class="row">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-5 border shadow m-4 p-4">
+                <form id="guess-form" method="POST">
+                    <div class="form-group">
+                        <label for="guess">Enter guess here:</label>
+                        <input type="text" id="guess" class="form-control my-3"  placeholder="boggle">
+                    </div>
+                    <button id="guess-btn" class="btn btn-primary">Guess!</button>
+                </form>
+                <div id="restart-container" class="text-center">
+                    <p>Game Over!</p>
+                    <p id="score-result"></p>
+                    <button id="restart-btn" class="btn btn-outline-primary btn-lg btn-block">Restart!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/popper"></script>
+    <script src="https://unpkg.com/bootstrap"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/app.js"></script>
+</body>
+</html>

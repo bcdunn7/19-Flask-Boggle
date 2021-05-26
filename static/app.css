@@ -1,0 +1,59 @@
+table {
+    min-width: 40vw;
+    max-width: 45vw;
+    min-height: 50vh;
+    text-align: center;
+    font-size: 40px;
+    border: none;
+}
+
+td {
+    width: 20%;
+    height: 20%;
+    vertical-align: middle;
+}
+
+.letter-box {
+    border-radius: 10px;
+    background-color: papayawhip;
+}
+
+/* hover effect for a possible later click to spell feature */
+/* .letter-box:hover {
+    border-radius: 10px;
+    background-color: rgb(191, 231, 236); */
+/* } */
+
+p {
+    font-size: 40px;
+}
+
+#score-result {
+    font-size: 25px;
+}
+
+#current-score {
+    font-size: 40px;
+}
+
+#result-display {
+    text-align: center;
+    font-size: 30px;
+}
+
+#adding-score {
+    display: inline;
+    font-size: 10px;
+    color: rgb(5, 192, 5);
+    vertical-align: middle;
+}
+
+/* classes for timer color */
+
+.timer-running-out {
+    color: rgb(236, 81, 210);
+}
+
+.timer-finished {
+    color: red;
+}
