@@ -8,6 +8,7 @@ class BoggleGame {
         this.words = new Set();
 
         $('#guess-btn').on('click', this.handleGuess.bind(this));
+            //alternatievly to binding, I could just not pass in the event to handgleGuess or is GuessValid
         $('#restart-btn').on('click', this.reloadPage);
     }
 
